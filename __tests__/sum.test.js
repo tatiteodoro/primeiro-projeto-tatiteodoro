@@ -1,4 +1,4 @@
 const sum = require('../src/sum');
-test('soma 1 + 2 para ser 3', ()=>{
-  expect(sum(1, 2)).toBe(3);
+test('soma 2 + 2 + 1 para ser 5', ()=>{
+  expect(sum(2, 2, 1)).toBe(5);
 });
