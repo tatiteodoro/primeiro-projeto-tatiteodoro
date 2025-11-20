@@ -1,0 +1,36 @@
+name: CI/CD primeiro-projeto-tatiteodoro
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+      
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      
+      - name: Instalar dependências
+        run: npm ci
+      
+      - name: Executar testes
+        run: npm test
+
+        deliver:
+        needs: buid_and_test
+        runs-on: ubuntu-latest
+        if: success()
+
+        steps:
+   
+          - name: Simulação de entrega
+            run: echo "Deploy simulado com sucesso! (Continuous Delivery)"
